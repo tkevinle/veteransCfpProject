@@ -1,0 +1,27 @@
+{
+   "owner": "null",
+   "codePut": null,
+   "codeDelete": null,
+   "virtualDomainRoles": [
+      {
+         "allowDelete": true,
+         "allowPost": true,
+         "allowPut": true,
+         "roleName": "ADMIN-GPBADMN",
+         "allowGet": true
+      },
+      {
+         "allowDelete": true,
+         "allowPost": true,
+         "allowPut": true,
+         "roleName": "ALLROLES",
+         "allowGet": true
+      }
+   ],
+   "codeGet": "select 'CH30' vet_code, 'Montgomery GI Bill® (Ch30)' vet_code_desc\r\nfrom dual\r\nunion\r\nselect 'CH33', 'Post-9/11 GI Bill® (Ch33)'\r\nfrom dual\r\nunion\r\nselect 'CH1606', 'Chapter 1606 (Reservists)'\r\nfrom dual\r\nunion\r\nselect 'VRE', 'Veteran Readiness and Employment (VR&E) (Ch31)'\r\nfrom dual\r\nwhere nvl(:parm_mil_stat, 'X') not in ('D','E')\r\nunion\r\nselect 'DEA', 'Dependents Educational Assistance (DEA) (Ch35)'\r\nfrom dual",
+   "typeOfCode": "S",
+   "fileTimestamp": "2022-01-05T18:12:09Z",
+   "serviceName": "VEcfpGIBill",
+   "codePost": null,
+   "developerSecurity": []
+}

@@ -1,0 +1,27 @@
+{
+   "owner": "TLE",
+   "codePut": null,
+   "codeDelete": null,
+   "virtualDomainRoles": [
+      {
+         "allowDelete": false,
+         "allowPost": false,
+         "allowPut": false,
+         "roleName": "ALLROLES",
+         "allowGet": true
+      },
+      {
+         "allowDelete": false,
+         "allowPost": false,
+         "allowPut": false,
+         "roleName": "ADMIN-GPBADMN",
+         "allowGet": true
+      }
+   ],
+   "codeGet": "SELECT robinst_aidy_code, robinst_aidy_desc, robinst_aidy_end_date\r\nFROM robinst \r\nWHERE robinst_status_ind = 'A'\r\nORDER BY robinst_aidy_end_date DESC",
+   "typeOfCode": "S",
+   "fileTimestamp": "2022-01-05T18:12:09Z",
+   "serviceName": "VEcfpSelectAidYear",
+   "codePost": null,
+   "developerSecurity": []
+}

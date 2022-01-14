@@ -1,0 +1,27 @@
+{
+   "owner": "TLE",
+   "codePut": null,
+   "codeDelete": null,
+   "virtualDomainRoles": [
+      {
+         "allowDelete": false,
+         "allowPost": false,
+         "allowPut": false,
+         "roleName": "ADMIN-GPBADMN",
+         "allowGet": true
+      },
+      {
+         "allowDelete": false,
+         "allowPost": false,
+         "allowPut": false,
+         "roleName": "ALLROLES",
+         "allowGet": true
+      }
+   ],
+   "codeGet": "select robinst_aidy_code, robinst_aidy_desc\r\nfrom robinst\r\nwhere robinst_aidy_start_date > sysdate-(365*5)\r\n    and not exists (select 'x'\r\n                    from gzrvcfp\r\n                    where gzrvcfp_aidy_code = robinst_aidy_code)",
+   "typeOfCode": "S",
+   "fileTimestamp": null,
+   "serviceName": "VEcfpAidyToSelect",
+   "codePost": null,
+   "developerSecurity": []
+}

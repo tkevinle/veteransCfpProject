@@ -1,0 +1,27 @@
+{
+   "owner": "TLE",
+   "codePut": null,
+   "codeDelete": null,
+   "virtualDomainRoles": [
+      {
+         "allowDelete": false,
+         "allowPost": false,
+         "allowPut": false,
+         "roleName": "ADMIN-GPBADMN",
+         "allowGet": true
+      },
+      {
+         "allowDelete": false,
+         "allowPost": false,
+         "allowPut": false,
+         "roleName": "ALLROLES",
+         "allowGet": true
+      }
+   ],
+   "codeGet": "select \r\n2 enlistment, '2 or more years' enlistment_desc\r\nfrom dual\r\nunion\r\nselect \r\n3, '3 or more years'\r\nfrom dual",
+   "typeOfCode": "S",
+   "fileTimestamp": "2022-01-05T18:12:09Z",
+   "serviceName": "VEcfpEnlistmentDomain",
+   "codePost": null,
+   "developerSecurity": []
+}

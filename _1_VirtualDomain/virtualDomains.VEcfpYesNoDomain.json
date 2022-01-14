@@ -1,0 +1,27 @@
+{
+   "owner": "TLE",
+   "codePut": null,
+   "codeDelete": null,
+   "virtualDomainRoles": [
+      {
+         "allowDelete": false,
+         "allowPost": false,
+         "allowPut": false,
+         "roleName": "ALLROLES",
+         "allowGet": true
+      },
+      {
+         "allowDelete": false,
+         "allowPost": false,
+         "allowPut": false,
+         "roleName": "ADMIN-GPBADMN",
+         "allowGet": true
+      }
+   ],
+   "codeGet": "select 'Y' yes_no, 'Yes' yes_no_desc\r\nfrom dual\r\nunion\r\nselect 'N', 'No'\r\nfrom dual\r\norder by 1 desc",
+   "typeOfCode": "S",
+   "fileTimestamp": "2022-01-05T22:55:16Z",
+   "serviceName": "VEcfpYesNoDomain",
+   "codePost": null,
+   "developerSecurity": []
+}

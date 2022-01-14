@@ -1,0 +1,27 @@
+{
+   "owner": "TLE",
+   "codePut": "declare lv_rowid varchar2(100) := :id; \r\n\r\nbegin if lv_rowid is null then raise_application_error (-20001,'No ROWID'); \r\nend if; \r\n\r\nupdate gzrvcfp \r\nset gzrvcfp_aidy_code = :GZRVCFP_AIDY_CODE,\r\ngzrvcfp_mil_status = :GZRVCFP_MIL_STATUS,\r\ngzrvcfp_mil_benefit = :GZRVCFP_MIL_BENEFIT,\r\ngzrvcfp_mil_service = :GZRVCFP_MIL_SERVICE,\r\ngzrvcfp_spouse_act_duty = :GZRVCFP_SPOUSE_ACT_DUTY,\r\ngzrvcfp_ben_prior_20180101 = :GZRVCFP_BEN_PRIOR_20180101,\r\ngzrvcfp_compl_enlist_yrs = :GZRVCFP_COMPL_ENLIST_YRS,\r\ngzrvcfp_post_911_elig = :GZRVCFP_POST_911_ELIG,\r\ngzrvcfp_nbr_dependents = :GZRVCFP_NBR_DEPENDENTS,\r\ngzrvcfp_tuition_annual = :GZRVCFP_TUITION_ANNUAL,\r\ngzrvcfp_housing_monthly = :GZRVCFP_HOUSING_MONTHLY,\r\ngzrvcfp_book_annual = :GZRVCFP_BOOK_ANNUAL,\r\ngzrvcfp_activity_date = SYSDATE,\r\ngzrvcfp_user_id = USER,\r\ngzrvcfp_data_origin = 'PAGEBUILDER' \r\nwhere rowid = chartorowid(lv_rowid); \r\ncommit; \r\nend;",
+   "codeDelete": "declare lv_rowid varchar2(100) := :id;\r\n\r\nbegin if lv_rowid is null then raise_application_error (-20001,'No ROWID'); \r\nend if; \r\n\r\ndelete from gzrvcfp \r\nwhere rowid = chartorowid(lv_rowid) \r\n; \r\ncommit; \r\nend;",
+   "virtualDomainRoles": [
+      {
+         "allowDelete": true,
+         "allowPost": true,
+         "allowPut": true,
+         "roleName": "ADMIN-GPBADMN",
+         "allowGet": true
+      },
+      {
+         "allowDelete": true,
+         "allowPost": true,
+         "allowPut": true,
+         "roleName": "ALLROLES",
+         "allowGet": true
+      }
+   ],
+   "codeGet": "select\r\n    rowidtochar(rowid) \"id\",\r\n    GZRVCFP_AIDY_CODE,         \r\n    GZRVCFP_MIL_STATUS,        \r\n    GZRVCFP_MIL_BENEFIT,       \r\n    GZRVCFP_MIL_SERVICE,       \r\n    GZRVCFP_SPOUSE_ACT_DUTY,   \r\n    GZRVCFP_BEN_PRIOR_20180101,\r\n    GZRVCFP_COMPL_ENLIST_YRS,  \r\n    GZRVCFP_POST_911_ELIG,     \r\n    GZRVCFP_NBR_DEPENDENTS,\r\n    GZRVCFP_TUITION_ANNUAL,\r\n    GZRVCFP_HOUSING_MONTHLY,\r\n    GZRVCFP_BOOK_ANNUAL,\r\n    GZRVCFP_ACTIVITY_DATE,\r\n    GZRVCFP_USER_ID,\r\n    GZRVCFP_SURROGATE_ID,\r\n    GZRVCFP_VERSION,\r\n    GZRVCFP_DATA_ORIGIN,\r\n    GZRVCFP_VPDI_CODE         \r\nfrom GZRVCFP\r\nwhere GZRVCFP_AIDY_CODE = :parm_aidy\r\norder by 2,3,4",
+   "typeOfCode": "S",
+   "fileTimestamp": "2022-01-05T18:12:09Z",
+   "serviceName": "VEcfpValidationDomain",
+   "codePost": "BEGIN \r\nINSERT INTO gzrvcfp\r\n(GZRVCFP_AIDY_CODE,\r\nGZRVCFP_MIL_STATUS,\r\nGZRVCFP_MIL_BENEFIT,\r\nGZRVCFP_MIL_SERVICE,\r\nGZRVCFP_SPOUSE_ACT_DUTY,\r\nGZRVCFP_BEN_PRIOR_20180101,\r\nGZRVCFP_COMPL_ENLIST_YRS,\r\nGZRVCFP_POST_911_ELIG,\r\nGZRVCFP_NBR_DEPENDENTS,\r\nGZRVCFP_TUITION_ANNUAL,\r\nGZRVCFP_HOUSING_MONTHLY,\r\nGZRVCFP_BOOK_ANNUAL,\r\nGZRVCFP_ACTIVITY_DATE,\r\nGZRVCFP_USER_ID,\r\nGZRVCFP_SURROGATE_ID,\r\nGZRVCFP_VERSION,\r\nGZRVCFP_DATA_ORIGIN,\r\nGZRVCFP_VPDI_CODE) \r\nVALUES (:parm_aidy, \r\n:GZRVCFP_MIL_STATUS,\r\n:GZRVCFP_MIL_BENEFIT,\r\n:GZRVCFP_MIL_SERVICE,\r\n:GZRVCFP_SPOUSE_ACT_DUTY,\r\n:GZRVCFP_BEN_PRIOR_20180101,\r\n:GZRVCFP_COMPL_ENLIST_YRS,\r\n:GZRVCFP_POST_911_ELIG,\r\n:GZRVCFP_NBR_DEPENDENTS,\r\n:GZRVCFP_TUITION_ANNUAL,\r\n:GZRVCFP_HOUSING_MONTHLY,\r\n:GZRVCFP_BOOK_ANNUAL,\r\nSYSDATE,\r\nUSER,\r\n:GZRVCFP_SURROGATE_ID,\r\n:GZRVCFP_VERSION,\r\n:GZRVCFP_DATA_ORIGIN,\r\n:GZRVCFP_VPDI_CODE); \r\ncommit; \r\nEND;",
+   "developerSecurity": []
+}

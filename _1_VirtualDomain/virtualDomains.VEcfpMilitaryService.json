@@ -1,0 +1,27 @@
+{
+   "owner": "TLE",
+   "codePut": null,
+   "codeDelete": null,
+   "virtualDomainRoles": [
+      {
+         "allowDelete": false,
+         "allowPost": false,
+         "allowPut": false,
+         "roleName": "ADMIN-GPBADMN",
+         "allowGet": true
+      },
+      {
+         "allowDelete": false,
+         "allowPost": false,
+         "allowPut": false,
+         "roleName": "ALLROLES",
+         "allowGet": true
+      }
+   ],
+   "codeGet": "select *\r\nfrom (\r\nselect \r\n    'CH33' mil_ben,\r\n    '36M' service_code,\r\n    '36+ months: 100%' service_desc,\r\n    1 pct\r\nfrom dual\r\nunion\r\nselect \r\n    'CH33',\r\n    '30M',\r\n    '30 months: 90%',\r\n    .9 pct\r\nfrom dual\r\nunion\r\nselect \r\n    'CH33' mil_ben,\r\n    '24M',\r\n    '24 months: 80%',\r\n    .8 pct\r\nfrom dual\r\nunion\r\nselect \r\n    'CH33',\r\n    '18M',\r\n    '18 months: 70%',\r\n    .7 pct\r\nfrom dual\r\nunion\r\nselect \r\n    'CH33',\r\n    '6M',\r\n    '6 months: 60%',\r\n    .6 pct\r\nfrom dual\r\nunion\r\nselect \r\n    'CH33' mil_ben,\r\n    '90D',\r\n    '90 days: 50%',\r\n    .5 pct\r\nfrom dual\r\nunion\r\nselect \r\n    'CH33',\r\n    'GYSGT',\r\n    'GYSGT Fry Scholarship: 100%',\r\n    1 pct\r\nfrom dual\r\nunion\r\nselect \r\n    'CH33',\r\n    'SCD',\r\n    'Service-Connected Discharge: 100%',\r\n    1 pct\r\nfrom dual\r\nunion\r\nselect\r\n    'CH33',\r\n    'PHS',\r\n    'Purple Heart Service: 100%',\r\n    1 pct\r\nfrom dual\r\nunion\r\nselect\r\n    null,\r\n    null,\r\n    ' ',\r\n    0 pct\r\nfrom dual)",
+   "typeOfCode": "S",
+   "fileTimestamp": "2022-01-05T18:12:09Z",
+   "serviceName": "VEcfpMilitaryService",
+   "codePost": null,
+   "developerSecurity": []
+}

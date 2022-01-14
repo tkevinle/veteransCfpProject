@@ -1,0 +1,379 @@
+{
+   "constantName": "VEcfpBenefitsValidationPage",
+   "developerSecurity": [],
+   "extendsPage": null,
+   "fileTimestamp": "2022-01-07T00:43:49Z",
+   "modelView": {
+      "components": [
+         {
+            "resource": "virtualDomains.VEcfpSelectAidYear",
+            "name": "VEcfpAidYearSelectDomain",
+            "type": "resource",
+            "staticData": []
+         },
+         {
+            "resource": "virtualDomains.VEcfpValidationDomain",
+            "name": "VEcfpBenefitsValidationDomain",
+            "type": "resource",
+            "staticData": []
+         },
+         {
+            "resource": "virtualDomains.VEcfpMilitaryStatus",
+            "name": "VEcfpMilitaryStatus",
+            "type": "resource",
+            "staticData": []
+         },
+         {
+            "resource": "virtualDomains.VEcfpGIBill",
+            "name": "VEcfpGIBill",
+            "type": "resource",
+            "staticData": []
+         },
+         {
+            "resource": "virtualDomains.VEcfpMilitaryService",
+            "name": "VEcfpMilitaryService",
+            "type": "resource",
+            "staticData": []
+         },
+         {
+            "name": "dateFormatChange",
+            "type": "literal",
+            "value": "<script>\n\n$(document).ready( function () {\n\ndelete  $.datepicker.regional[dateTimeLocale].dateFormat ; });</script>"
+         },
+         {
+            "resource": "virtualDomains.VEcfpCopyValidationDomain",
+            "name": "VEcfpValidationCopy",
+            "type": "resource",
+            "staticData": []
+         },
+         {
+            "resource": "virtualDomains.VEcfpAidYearDomain",
+            "name": "VEcfpAidYearAvailable",
+            "type": "resource",
+            "staticData": []
+         },
+         {
+            "resource": "virtualDomains.VEcfpAidyToSelect",
+            "name": "VEcfpAidYearToSelect",
+            "type": "resource",
+            "staticData": []
+         },
+         {
+            "components": [
+               {
+                  "name": "configureDataDescription",
+                  "type": "literal",
+                  "value": "Select Aid Year and update Book/Housing/Tuition amounts for all Veterans Benefits Programs."
+               },
+               {
+                  "sourceParameters": {},
+                  "name": "selectAidYear",
+                  "sourceModel": "VEcfpAidYearSelectDomain",
+                  "label": "Select Aid Year:",
+                  "loadInitially": true,
+                  "type": "select",
+                  "labelKey": "ROBINST_AIDY_DESC",
+                  "valueKey": "ROBINST_AIDY_CODE",
+                  "onUpdate": "$benefitsValidationTable.$load();",
+                  "required": true
+               }
+            ],
+            "name": "selectAidYearBlock",
+            "showInitially": true,
+            "label": "Configure Veterans Financing Plan Amounts",
+            "type": "block"
+         },
+         {
+            "components": [
+               {
+                  "allowDelete": true,
+                  "components": [
+                     {
+                        "name": "GZRVCFP_AIDY_CODE",
+                        "model": "GZRVCFP_AIDY_CODE",
+                        "loadInitially": true,
+                        "type": "hidden"
+                     },
+                     {
+                        "label": "Military Status",
+                        "loadInitially": true,
+                        "type": "select",
+                        "required": false,
+                        "sourceParameters": {},
+                        "name": "selectMilitaryStatus",
+                        "sourceModel": "VEcfpMilitaryStatus",
+                        "model": "GZRVCFP_MIL_STATUS",
+                        "placeholder": "",
+                        "labelKey": "MIL_STATUS_DESC",
+                        "valueKey": "MIL_STATUS_CODE",
+                        "value": "",
+                        "onUpdate": "$militaryStatus=$benefitsValidationTable.$selected.GZRVCFP_MIL_STATUS;\n$selectMilitaryBenefit.$load();"
+                     },
+                     {
+                        "name": "GZRVCFP_MIL_STATUS",
+                        "model": "GZRVCFP_MIL_STATUS",
+                        "loadInitially": true,
+                        "type": "hidden"
+                     },
+                     {
+                        "sourceParameters": {},
+                        "name": "selectMilitaryBenefit",
+                        "sourceModel": "VEcfpGIBill",
+                        "model": "GZRVCFP_MIL_BENEFIT",
+                        "label": "Military Benefit",
+                        "loadInitially": true,
+                        "type": "select",
+                        "labelKey": "VET_CODE_DESC",
+                        "valueKey": "VET_CODE",
+                        "onUpdate": "$VEcfpMilitaryService.$load();\n$selectMilitaryBenefit.$load();",
+                        "required": true
+                     },
+                     {
+                        "name": "GZRVCFP_MIL_BENEFIT",
+                        "model": "GZRVCFP_MIL_BENEFIT",
+                        "loadInitially": true,
+                        "type": "hidden"
+                     },
+                     {
+                        "sourceParameters": {
+                           "parm_mil_ben": "$selectMilitaryBenefit",
+                           "GZRVCFP_MIL_BENEFIT": "$selectMilitaryBenefit"
+                        },
+                        "name": "selectMilitaryService",
+                        "sourceModel": "VEcfpMilitaryService",
+                        "model": "GZRVCFP_MIL_SERVICE",
+                        "label": "Military Service",
+                        "loadInitially": true,
+                        "type": "select",
+                        "labelKey": "SERVICE_DESC",
+                        "valueKey": "SERVICE_CODE",
+                        "required": false
+                     },
+                     {
+                        "name": "GZRVCFP_MIL_SERVICE",
+                        "model": "GZRVCFP_MIL_SERVICE",
+                        "loadInitially": true,
+                        "type": "hidden"
+                     },
+                     {
+                        "readonly": false,
+                        "booleanTrueValue": "Y",
+                        "name": "GZRVCFP_SPOUSE_ACT_DUTY",
+                        "model": "GZRVCFP_SPOUSE_ACT_DUTY",
+                        "label": "Spouse Active Duty",
+                        "loadInitially": true,
+                        "type": "boolean"
+                     },
+                     {
+                        "readonly": false,
+                        "booleanTrueValue": "Y",
+                        "booleanFalseValue": "N",
+                        "name": "GZRVCFP_BEN_PRIOR_20180101",
+                        "model": "GZRVCFP_BEN_PRIOR_20180101",
+                        "loadInitially": true,
+                        "label": "Recd Ben Prior 20180101",
+                        "type": "boolean"
+                     },
+                     {
+                        "valueStyle": "data-amount",
+                        "readonly": false,
+                        "name": "GZRVCFP_COMPL_ENLIST_YRS",
+                        "model": "GZRVCFP_COMPL_ENLIST_YRS",
+                        "fractionDigits": 0,
+                        "loadInitially": true,
+                        "label": "Years of Enlist Completed",
+                        "type": "number",
+                        "parameters": {},
+                        "validation": {},
+                        "required": false
+                     },
+                     {
+                        "readonly": false,
+                        "booleanTrueValue": "Y",
+                        "booleanFalseValue": "N",
+                        "name": "GZRVCFP_POST_911_ELIG",
+                        "model": "GZRVCFP_POST_911_ELIG",
+                        "loadInitially": true,
+                        "label": "Post 911 Elig",
+                        "type": "boolean"
+                     },
+                     {
+                        "valueStyle": "data-amount",
+                        "readonly": false,
+                        "name": "GZRVCFP_NBR_DEPENDENTS",
+                        "model": "GZRVCFP_NBR_DEPENDENTS",
+                        "fractionDigits": 0,
+                        "label": "Nbr of Dependents",
+                        "loadInitially": true,
+                        "type": "number",
+                        "parameters": {},
+                        "validation": {},
+                        "required": false
+                     },
+                     {
+                        "valueStyle": "data-amount",
+                        "readonly": false,
+                        "name": "GZRVCFP_TUITION_ANNUAL",
+                        "model": "GZRVCFP_TUITION_ANNUAL",
+                        "fractionDigits": 2,
+                        "style": "align: right;",
+                        "label": "Annual Tuition Amt",
+                        "loadInitially": true,
+                        "type": "number",
+                        "parameters": {},
+                        "validation": {},
+                        "required": true
+                     },
+                     {
+                        "valueStyle": "data-amount",
+                        "readonly": false,
+                        "name": "GZRVCFP_HOUSING_MONTHLY",
+                        "model": "GZRVCFP_HOUSING_MONTHLY",
+                        "fractionDigits": 2,
+                        "label": "Monthly Housing Amt",
+                        "loadInitially": true,
+                        "type": "number",
+                        "parameters": {},
+                        "validation": {},
+                        "required": true
+                     },
+                     {
+                        "valueStyle": "data-amount",
+                        "readonly": false,
+                        "name": "GZRVCFP_BOOK_ANNUAL",
+                        "model": "GZRVCFP_BOOK_ANNUAL",
+                        "fractionDigits": 2,
+                        "label": "Annual Book Amt",
+                        "loadInitially": true,
+                        "type": "number",
+                        "parameters": {},
+                        "validation": {},
+                        "required": true
+                     },
+                     {
+                        "readonly": true,
+                        "name": "GZRVCFP_ACTIVITY_DATE",
+                        "model": "GZRVCFP_ACTIVITY_DATE",
+                        "style": "",
+                        "label": "Activity Date",
+                        "loadInitially": true,
+                        "type": "text",
+                        "value": "",
+                        "parameters": {},
+                        "validation": {},
+                        "required": false
+                     },
+                     {
+                        "readonly": true,
+                        "name": "GZRVCFP_USER_ID",
+                        "model": "GZRVCFP_USER_ID",
+                        "label": "User",
+                        "loadInitially": true,
+                        "type": "text",
+                        "value": "",
+                        "parameters": {},
+                        "validation": {},
+                        "required": false
+                     },
+                     {
+                        "name": "GZRVCFP_SURROGATE_ID",
+                        "model": "GZRVCFP_SURROGATE_ID",
+                        "loadInitially": true,
+                        "type": "hidden"
+                     },
+                     {
+                        "name": "GZRVCFP_VERSION",
+                        "model": "GZRVCFP_VERSION",
+                        "loadInitially": true,
+                        "type": "hidden"
+                     },
+                     {
+                        "name": "GZRVCFP_DATA_ORIGIN",
+                        "model": "GZRVCFP_DATA_ORIGIN",
+                        "loadInitially": true,
+                        "type": "hidden"
+                     },
+                     {
+                        "name": "GZRVCFP_VPDI_CODE",
+                        "model": "GZRVCFP_VPDI_CODE",
+                        "loadInitially": true,
+                        "type": "hidden"
+                     }
+                  ],
+                  "onError": "alert(response.data.errors.errorMessage,{type:\"error\"});",
+                  "allowNew": true,
+                  "pageSize": 30,
+                  "onSaveSuccess": "alert('Saved Successfully');",
+                  "loadInitially": true,
+                  "type": "grid",
+                  "name": "benefitsValidationTable",
+                  "allowModify": true,
+                  "model": "VEcfpBenefitsValidationDomain",
+                  "allowReload": true,
+                  "parameters": {
+                     "parm_aidy": "$selectAidYear"
+                  }
+               }
+            ],
+            "name": "benefitsValidationBlock",
+            "showInitially": true,
+            "label": "",
+            "type": "block"
+         },
+         {
+            "submitLabel": "Copy",
+            "components": [
+               {
+                  "sourceParameters": {},
+                  "name": "selectFromAidYear",
+                  "sourceModel": "VEcfpAidYearAvailable",
+                  "loadInitially": true,
+                  "label": "From Aid Year:",
+                  "type": "select",
+                  "labelKey": "ROBINST_AIDY_DESC",
+                  "valueKey": "ROBINST_AIDY_CODE",
+                  "onUpdate": "",
+                  "required": true
+               },
+               {
+                  "sourceParameters": {},
+                  "name": "selectToAidYear",
+                  "sourceModel": "VEcfpAidYearToSelect",
+                  "loadInitially": true,
+                  "label": "To Aid Year:",
+                  "type": "select",
+                  "labelKey": "ROBINST_AIDY_DESC",
+                  "valueKey": "ROBINST_AIDY_CODE",
+                  "onUpdate": "",
+                  "required": true
+               }
+            ],
+            "submit": "$VEcfpValidationCopy.$post( { p_fromAidy: $selectFromAidYear, p_toAidy: $selectToAidYear }, null, function (response){$copyAidYearDataForm.$visible=false; alert('Aid Year Data Successfully Copied');}, function (response) { var msg = \"Request Error.\\n\"; if (response.data.errors.errorMessage) { msg += response.data.errors.errorMessage; } else if (response.data.errors[0].errorMessage) { msg += response.data.errors[0].errorMessage; } else { msg += response.statusText; } if (msg) { alert(msg,{type:\"error\"}); } });",
+            "nextButtonLabel": "",
+            "name": "copyAidYearDataForm",
+            "showInitially": true,
+            "label": "Roll Veterans CFP Data",
+            "type": "form"
+         }
+      ],
+      "name": "VEcfpBenefitsValidationPage",
+      "type": "page",
+      "title": "Veterans Benefits Validation Page",
+      "importCSS": "veCfpCss"
+   },
+   "owner": "TLE",
+   "pageRoles": [
+      {
+         "roleName": "ADMIN-GPBADMA",
+         "allow": true
+      },
+      {
+         "roleName": "ADMIN-GPBADMN",
+         "allow": true
+      },
+      {
+         "roleName": "ALLROLES",
+         "allow": true
+      }
+   ]
+}
