@@ -20,7 +20,7 @@
    ],
    "codeGet": "select 'CH30' vet_code, 'Montgomery GI Bill® (Ch30)' vet_code_desc\r\nfrom dual\r\nunion\r\nselect 'CH33', 'Post-9/11 GI Bill® (Ch33)'\r\nfrom dual\r\nunion\r\nselect 'CH1606', 'Chapter 1606 (Reservists)'\r\nfrom dual\r\nunion\r\nselect 'VRE', 'Veteran Readiness and Employment (VR&E) (Ch31)'\r\nfrom dual\r\nwhere nvl(:parm_mil_stat, 'X') not in ('D','E')\r\nunion\r\nselect 'DEA', 'Dependents Educational Assistance (DEA) (Ch35)'\r\nfrom dual",
    "typeOfCode": "S",
-   "fileTimestamp": "2022-01-14T19:00:46Z",
+   "fileTimestamp": "2022-01-14T19:56:49Z",
    "serviceName": "veCfpGIBill",
    "codePost": null,
    "developerSecurity": []

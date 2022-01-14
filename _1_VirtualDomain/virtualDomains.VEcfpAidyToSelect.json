@@ -20,7 +20,7 @@
    ],
    "codeGet": "select robinst_aidy_code, robinst_aidy_desc\r\nfrom robinst\r\nwhere robinst_aidy_start_date > sysdate-(365*5)\r\n    and not exists (select 'x'\r\n                    from gzrvcfp\r\n                    where gzrvcfp_aidy_code = robinst_aidy_code)",
    "typeOfCode": "S",
-   "fileTimestamp": "2022-01-14T19:00:45Z",
+   "fileTimestamp": "2022-01-14T19:56:49Z",
    "serviceName": "veCfpAidyToSelect",
    "codePost": null,
    "developerSecurity": []

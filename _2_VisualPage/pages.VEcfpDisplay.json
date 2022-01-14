@@ -2,21 +2,9 @@
    "constantName": "veCfpDisplay",
    "developerSecurity": [],
    "extendsPage": null,
-   "fileTimestamp": "2022-01-14T19:54:45Z",
+   "fileTimestamp": "2022-01-14T23:08:25Z",
    "modelView": {
       "components": [
-         {
-            "resource": "virtualDomains.veCfpSelectAidYear",
-            "name": "veCfpSelectAidYear",
-            "type": "resource",
-            "staticData": []
-         },
-         {
-            "resource": "virtualDomains.veCfpSelectVetCode",
-            "name": "veCfpSelectVetCode",
-            "type": "resource",
-            "staticData": []
-         },
          {
             "resource": "virtualDomains.veCfpAidYearDomain",
             "name": "veCfpAidYearDomain",
@@ -38,12 +26,6 @@
          {
             "resource": "virtualDomains.veCfpGIBill",
             "name": "veCfpGIBill",
-            "type": "resource",
-            "staticData": []
-         },
-         {
-            "resource": "virtualDomains.veCfpCh33Service",
-            "name": "veCfpCh33Service",
             "type": "resource",
             "staticData": []
          },

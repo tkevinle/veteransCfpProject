@@ -2,18 +2,12 @@
    "constantName": "veCfpBenefitsValidationPage",
    "developerSecurity": [],
    "extendsPage": null,
-   "fileTimestamp": "2022-01-14T19:54:45Z",
+   "fileTimestamp": "2022-01-14T23:08:25Z",
    "modelView": {
       "components": [
          {
-            "resource": "virtualDomains.veCfpSelectAidYear",
-            "name": "veCfpAidYearSelect",
-            "type": "resource",
-            "staticData": []
-         },
-         {
             "resource": "virtualDomains.veCfpValidation",
-            "name": "veCfpBenefitsValidation",
+            "name": "veCfpValidation",
             "type": "resource",
             "staticData": []
          },
@@ -36,11 +30,6 @@
             "staticData": []
          },
          {
-            "name": "dateFormatChange",
-            "type": "literal",
-            "value": "<script>\n\n$(document).ready( function () {\n\ndelete  $.datepicker.regional[dateTimeLocale].dateFormat ; });</script>"
-         },
-         {
             "resource": "virtualDomains.veCfpCopyValidation",
             "name": "veCfpValidationCopy",
             "type": "resource",
@@ -57,6 +46,11 @@
             "name": "veCfpAidYearToSelect",
             "type": "resource",
             "staticData": []
+         },
+         {
+            "name": "dateFormatChange",
+            "type": "literal",
+            "value": "<script>\n\n$(document).ready( function () {\n\ndelete  $.datepicker.regional[dateTimeLocale].dateFormat ; });</script>"
          },
          {
             "components": [
@@ -230,6 +224,7 @@
                         "name": "GZRVCFP_HOUSING_MONTHLY",
                         "model": "GZRVCFP_HOUSING_MONTHLY",
                         "fractionDigits": 2,
+                        "style": "align: right;",
                         "label": "Monthly Housing Amt",
                         "loadInitially": true,
                         "type": "number",
@@ -243,6 +238,7 @@
                         "name": "GZRVCFP_BOOK_ANNUAL",
                         "model": "GZRVCFP_BOOK_ANNUAL",
                         "fractionDigits": 2,
+                        "style": "align: right;",
                         "label": "Annual Book Amt",
                         "loadInitially": true,
                         "type": "number",
@@ -308,7 +304,7 @@
                   "type": "grid",
                   "name": "benefitsValidationTable",
                   "allowModify": true,
-                  "model": "veCfpBenefitsValidation",
+                  "model": "veCfpValidation",
                   "allowReload": true,
                   "parameters": {
                      "parm_aidy": "$aidYearDD"
@@ -359,14 +355,10 @@
       "name": "veCfpBenefitsValidationPage",
       "type": "page",
       "title": "Veterans Benefits Validation Page",
-      "importCSS": "veCfpCss"
+      "importCSS": "ccsf_ve_cfpCss"
    },
    "owner": "TLE",
    "pageRoles": [
-      {
-         "roleName": "ADMIN-GPBADMA",
-         "allow": true
-      },
       {
          "roleName": "ADMIN-GPBADMN",
          "allow": true
