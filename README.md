@@ -486,7 +486,7 @@ Allow Veterans Students to see a generated Veteran's College Financing Plan with
     * PROD: 
 
 * URL:
-    * PPRD: 
+    * PPRD: https://ssb-pprd-np2.ccsf.edu:8107/BannerExtensibility/customPage/page/veCfpDisplay
     * PROD: 
 * Spring Security Attributes: 
     ROLE_GPBADMN_BAN_DEFAULT_PAGEBUILDER_M,ROLE_SELFSERVICE-ALLROLES_BAN_DEFAULT_M
@@ -1235,7 +1235,7 @@ Allow Veterans Students to see a generated Veteran's College Financing Plan with
     * PROD: 
 
 * URL:
-    * PPRD: 
+    * PPRD: https://ssb-pprd-np2.ccsf.edu:8107/BannerExtensibility/customPage/page/veCfpBenefitsValidationPage
     * PROD: 
 * Spring Security Attributes: 
     ROLE_GPBADMN_BAN_DEFAULT_PAGEBUILDER_M,ROLE_SELFSERVICE-ALLROLES_BAN_DEFAULT_M
