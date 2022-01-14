@@ -18,10 +18,10 @@
          "allowGet": true
       }
    ],
-   "codeGet": "select rownum dependents\r\nfrom dual\r\nconnect by rownum <= 5\r\nunion\r\nselect 0\r\nfrom dual\r\norder by 1",
+   "codeGet": "select 'Y' yes_no, 'Yes' yes_no_desc\r\nfrom dual\r\nunion\r\nselect 'N', 'No'\r\nfrom dual\r\norder by 1 desc",
    "typeOfCode": "S",
-   "fileTimestamp": "2022-01-05T18:12:09Z",
-   "serviceName": "VEcfpDependentsDomain",
+   "fileTimestamp": "2022-01-14T19:32:02Z",
+   "serviceName": "veCfpYesNo",
    "codePost": null,
    "developerSecurity": []
 }

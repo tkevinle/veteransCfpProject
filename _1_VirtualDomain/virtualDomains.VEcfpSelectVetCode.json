@@ -20,8 +20,8 @@
    ],
    "codeGet": "select rowidtochar(rowid) \"id\",\r\nSTVVETC_DESC,\r\nSTVVETC_CODE\r\nfrom STVVETC",
    "typeOfCode": "S",
-   "fileTimestamp": "2022-01-05T22:55:16Z",
-   "serviceName": "VEcfpSelectVetCode",
+   "fileTimestamp": "2022-01-14T19:00:46Z",
+   "serviceName": "veCfpSelectVetCode",
    "codePost": null,
    "developerSecurity": []
 }

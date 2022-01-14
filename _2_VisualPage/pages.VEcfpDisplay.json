@@ -1,73 +1,73 @@
 {
-   "constantName": "VEcfpDisplay",
+   "constantName": "veCfpDisplay",
    "developerSecurity": [],
    "extendsPage": null,
-   "fileTimestamp": "2022-01-14T16:51:08Z",
+   "fileTimestamp": "2022-01-14T19:54:45Z",
    "modelView": {
       "components": [
          {
-            "resource": "virtualDomains.VEcfpDomain",
-            "name": "VEcfpSelectAidYear",
+            "resource": "virtualDomains.veCfpSelectAidYear",
+            "name": "veCfpSelectAidYear",
             "type": "resource",
             "staticData": []
          },
          {
-            "resource": "virtualDomains.VEcfpSelectVetCode",
-            "name": "VEcfpSelectVetCode",
+            "resource": "virtualDomains.veCfpSelectVetCode",
+            "name": "veCfpSelectVetCode",
             "type": "resource",
             "staticData": []
          },
          {
-            "resource": "virtualDomains.VEcfpAidYearDomain",
-            "name": "VEcfpAidYearDomain",
+            "resource": "virtualDomains.veCfpAidYearDomain",
+            "name": "veCfpAidYearDomain",
             "type": "resource",
             "staticData": []
          },
          {
-            "resource": "virtualDomains.VEcfpUserData",
-            "name": "VEcfpStudentData",
+            "resource": "virtualDomains.veCfpStudentData",
+            "name": "veCfpStudentData",
             "type": "resource",
             "staticData": []
          },
          {
-            "resource": "virtualDomains.VEcfpMilitaryStatus",
-            "name": "VEcfpMilitaryStatus",
+            "resource": "virtualDomains.veCfpMilitaryStatus",
+            "name": "veCfpMilitaryStatus",
             "type": "resource",
             "staticData": []
          },
          {
-            "resource": "virtualDomains.VEcfpGIBill",
-            "name": "VEcfpGIBill",
+            "resource": "virtualDomains.veCfpGIBill",
+            "name": "veCfpGIBill",
             "type": "resource",
             "staticData": []
          },
          {
-            "resource": "virtualDomains.VEcfpCh33Service",
-            "name": "VEcfpCh33Service",
+            "resource": "virtualDomains.veCfpCh33Service",
+            "name": "veCfpCh33Service",
             "type": "resource",
             "staticData": []
          },
          {
-            "resource": "virtualDomains.VEcfpMilitaryService",
-            "name": "VEcfpMilitaryService",
+            "resource": "virtualDomains.veCfpMilitaryService",
+            "name": "veCfpMilitaryService",
             "type": "resource",
             "staticData": []
          },
          {
-            "resource": "virtualDomains.VEcfpEnlistmentDomain",
-            "name": "VEcfpEnlistment",
+            "resource": "virtualDomains.veCfpEnlistment",
+            "name": "veCfpEnlistment",
             "type": "resource",
             "staticData": []
          },
          {
-            "resource": "virtualDomains.VEcfpYesNoDomain",
-            "name": "VEcfpYesNo",
+            "resource": "virtualDomains.veCfpYesNo",
+            "name": "veCfpYesNo",
             "type": "resource",
             "staticData": []
          },
          {
-            "resource": "virtualDomains.VEcfpDependentsDomain",
-            "name": "VEcfpDependents",
+            "resource": "virtualDomains.veCfpDependents",
+            "name": "veCfpDependents",
             "type": "resource",
             "staticData": []
          },
@@ -82,15 +82,15 @@
                   "components": [
                      {
                         "sourceParameters": {},
-                        "name": "aidYearSelect",
+                        "name": "aidYearDD",
                         "onLoad": "",
-                        "sourceModel": "VEcfpAidYearDomain",
+                        "sourceModel": "veCfpAidYearDomain",
                         "loadInitially": true,
                         "label": "Aid Year",
                         "type": "select",
                         "labelKey": "ROBINST_AIDY_DESC",
                         "valueKey": "ROBINST_AIDY_CODE",
-                        "onUpdate": "$militaryStatusSelect = null;\n$giBillSelect = null;\n$selectSpouseActiveDuty= null;\n$selectMilitaryService= null;\n$benefitsPrior= null;\n$enlistmentYears= null;\n$post911GiBillEligible= null;\n$dependents = null;\n$militaryStatusSelect.$load();\n$selectMilitaryStatusBlock.$visible=true;\n$selectSpouseActiveDutyBlock.$visible=false;\n$selectMilitaryBenefitBlock.$visible=false;\n$selectMilitaryServiceBlock.$visible=false;\n$selectBenefitsPriorBlock.$visible=false;\n$selectEnlistmentYearsBlock.$visible=false;\n$selectPost911GiBillEligibleBlock.$visible=false;\n$selectDependents.$visible=false;",
+                        "onUpdate": "$militaryStatusDD = null;\n$giBillDD = null;\n$spouseActiveDutyDD= null;\n$militaryServiceDD= null;\n$benefitsPriorDD= null;\n$enlistmentYearsDD= null;\n$post911GiBillEligibleDD= null;\n$dependentsDD = null;\n$militaryStatusDD.$load();\n$selectMilitaryStatusBlock.$visible=true;\n$spouseActiveDutyDDBlock.$visible=false;\n$selectMilitaryBenefitBlock.$visible=false;\n$militaryServiceDDBlock.$visible=false;\n$selectBenefitsPriorBlock.$visible=false;\n$selectEnlistmentYearsBlock.$visible=false;\n$selectPost911GiBillEligibleBlock.$visible=false;\n$selectDependents.$visible=false;",
                         "required": true
                      }
                   ],
@@ -102,14 +102,14 @@
                   "components": [
                      {
                         "sourceParameters": {},
-                        "name": "militaryStatusSelect",
-                        "sourceModel": "VEcfpMilitaryStatus",
+                        "name": "militaryStatusDD",
+                        "sourceModel": "veCfpMilitaryStatus",
                         "label": "What is your military status?",
                         "loadInitially": true,
                         "type": "select",
                         "labelKey": "MIL_STATUS_DESC",
                         "valueKey": "MIL_STATUS_CODE",
-                        "onUpdate": "$giBillSelect = null;\n$selectSpouseActiveDuty= null;\n$selectMilitaryService= null;\n$benefitsPrior= null;\n$enlistmentYears= null;\n$post911GiBillEligible= null;\n$dependents = null;\n$selectMilitaryBenefitBlock.$visible=true;\n$giBillSelect.$load();\nif ($militaryStatusSelect == 'D') {\n  $selectSpouseActiveDutyBlock.$visible=true;\n  $selectMilitaryBenefitBlock.$visible=true;\n  $selectMilitaryServiceBlock.$visible=false;\n  $selectBenefitsPriorBlock.$visible=false;\n  $selectEnlistmentYearsBlock.$visible=false;\n  $selectPost911GiBillEligibleBlock.$visible=false;\n  $selectDependents.$visible=false;\n} else {\n  $selectMilitaryBenefitBlock.$visible=true;\n  $selectSpouseActiveDutyBlock.$visible=false;\n  $selectMilitaryServiceBlock.$visible=false;\n  $selectBenefitsPriorBlock.$visible=false;\n  $selectEnlistmentYearsBlock.$visible=false;\n  $selectPost911GiBillEligibleBlock.$visible=false;\n  $selectDependents.$visible=false;\n}",
+                        "onUpdate": "$giBillDD = null;\n$spouseActiveDutyDD= null;\n$militaryServiceDD= null;\n$benefitsPriorDD= null;\n$enlistmentYearsDD= null;\n$post911GiBillEligibleDD= null;\n$dependentsDD = null;\n$selectMilitaryBenefitBlock.$visible=true;\n$giBillDD.$load();\nif ($militaryStatusDD == 'D') {\n  $spouseActiveDutyDDBlock.$visible=true;\n  $selectMilitaryBenefitBlock.$visible=true;\n  $militaryServiceDDBlock.$visible=false;\n  $selectBenefitsPriorBlock.$visible=false;\n  $selectEnlistmentYearsBlock.$visible=false;\n  $selectPost911GiBillEligibleBlock.$visible=false;\n  $selectDependents.$visible=false;\n} else {\n  $selectMilitaryBenefitBlock.$visible=true;\n  $spouseActiveDutyDDBlock.$visible=false;\n  $militaryServiceDDBlock.$visible=false;\n  $selectBenefitsPriorBlock.$visible=false;\n  $selectEnlistmentYearsBlock.$visible=false;\n  $selectPost911GiBillEligibleBlock.$visible=false;\n  $selectDependents.$visible=false;\n}",
                         "required": true
                      }
                   ],
@@ -121,18 +121,18 @@
                   "components": [
                      {
                         "sourceParameters": {},
-                        "name": "selectSpouseActiveDuty",
-                        "sourceModel": "VEcfpYesNo",
+                        "name": "spouseActiveDutyDD",
+                        "sourceModel": "veCfpYesNo",
                         "label": "Is your spouse on active duty?",
                         "loadInitially": true,
                         "type": "select",
                         "labelKey": "YES_NO_DESC",
                         "valueKey": "YES_NO",
-                        "onUpdate": "$selectMilitaryBenefitBlock.$visible=true;\n$giBillSelect.$load()",
+                        "onUpdate": "$selectMilitaryBenefitBlock.$visible=true;\n$giBillDD.$load()",
                         "required": true
                      }
                   ],
-                  "name": "selectSpouseActiveDutyBlock",
+                  "name": "spouseActiveDutyDDBlock",
                   "showInitially": false,
                   "type": "block"
                },
@@ -140,16 +140,16 @@
                   "components": [
                      {
                         "sourceParameters": {
-                           "parm_mil_stat": "$militaryStatusSelect"
+                           "parm_mil_stat": "$militaryStatusDD"
                         },
-                        "name": "giBillSelect",
-                        "sourceModel": "VEcfpGIBill",
+                        "name": "giBillDD",
+                        "sourceModel": "veCfpGIBill",
                         "label": "Which GI Bill benefit do you want to use?",
                         "loadInitially": true,
                         "type": "select",
                         "labelKey": "VET_CODE_DESC",
                         "valueKey": "VET_CODE",
-                        "onUpdate": "$selectSpouseActiveDuty= null;\n$selectMilitaryService= null;\n$benefitsPrior= null;\n$enlistmentYears= null;\n$post911GiBillEligible= null;\n$dependents = null;\nif ($giBillSelect == 'CH30') {\n  $selectEnlistmentYearsBlock.$visible=true;\n  $generateFormButtonBlock.$visible=false;\n  $selectMilitaryServiceBlock.$visible=false;\n  $selectBenefitsPriorBlock.$visible=false;\n  $selectPost911GiBillEligibleBlock.$visible=false;\n  $selectDependents.$visible=false;\n  $generateFormButtonBlock.$visible=false;\n} else if ($giBillSelect == 'CH33') {\n  $selectMilitaryServiceBlock.$visible=true;\n  $selectBenefitsPriorBlock.$visible=false;\n  $selectEnlistmentYearsBlock.$visible=false;\n  $selectPost911GiBillEligibleBlock.$visible=false;\n  $selectDependents.$visible=false;\n  $generateFormButtonBlock.$visible=false;\n} else if ($giBillSelect == 'VRE') {\n  $selectPost911GiBillEligibleBlock.$visible=true;\n  $selectEnlistmentYearsBlock.$visible=false;\n  $selectMilitaryServiceBlock.$visible=false;\n  $selectBenefitsPriorBlock.$visible=false;\n  $generateFormButtonBlock.$visible=false;\n} else {\n  $generateFormButtonBlock.$visible=true;\n  $selectEnlistmentYearsBlock.$visible=false;\n  $selectMilitaryServiceBlock.$visible=false;\n  $selectBenefitsPriorBlock.$visible=false;\n  $selectPost911GiBillEligibleBlock.$visible=false;\n  $selectDependents.$visible=false;\n  $studentDataHtmlTable.$load();\n}",
+                        "onUpdate": "$spouseActiveDutyDD= null;\n$militaryServiceDD= null;\n$benefitsPriorDD= null;\n$enlistmentYearsDD= null;\n$post911GiBillEligibleDD= null;\n$dependentsDD = null;\nif ($giBillDD == 'CH30') {\n  $selectEnlistmentYearsBlock.$visible=true;\n  $generateFormButtonBlock.$visible=false;\n  $militaryServiceDDBlock.$visible=false;\n  $selectBenefitsPriorBlock.$visible=false;\n  $selectPost911GiBillEligibleBlock.$visible=false;\n  $selectDependents.$visible=false;\n  $generateFormButtonBlock.$visible=false;\n} else if ($giBillDD == 'CH33') {\n  $militaryServiceDDBlock.$visible=true;\n  $selectBenefitsPriorBlock.$visible=false;\n  $selectEnlistmentYearsBlock.$visible=false;\n  $selectPost911GiBillEligibleBlock.$visible=false;\n  $selectDependents.$visible=false;\n  $generateFormButtonBlock.$visible=false;\n} else if ($giBillDD == 'VRE') {\n  $selectPost911GiBillEligibleBlock.$visible=true;\n  $selectEnlistmentYearsBlock.$visible=false;\n  $militaryServiceDDBlock.$visible=false;\n  $selectBenefitsPriorBlock.$visible=false;\n  $generateFormButtonBlock.$visible=false;\n} else {\n  $generateFormButtonBlock.$visible=true;\n  $selectEnlistmentYearsBlock.$visible=false;\n  $militaryServiceDDBlock.$visible=false;\n  $selectBenefitsPriorBlock.$visible=false;\n  $selectPost911GiBillEligibleBlock.$visible=false;\n  $selectDependents.$visible=false;\n  $studentDataHtmlTable.$load();\n}",
                         "required": true
                      }
                   ],
@@ -161,18 +161,18 @@
                   "components": [
                      {
                         "sourceParameters": {},
-                        "name": "selectMilitaryService",
-                        "sourceModel": "VEcfpMilitaryService",
+                        "name": "militaryServiceDD",
+                        "sourceModel": "veCfpMilitaryService",
                         "label": "Cumulative Post-9/11 active-duty service",
                         "loadInitially": true,
                         "type": "select",
                         "labelKey": "SERVICE_DESC",
                         "valueKey": "SERVICE_CODE",
-                        "onUpdate": "$selectSpouseActiveDuty= null;\n$benefitsPrior= null;\n$enlistmentYears= null;\n$post911GiBillEligible= null;\n$dependents = null;\n$selectBenefitsPriorBlock.$visible=true;\n$serviceSelect.$load()",
+                        "onUpdate": "$spouseActiveDutyDD= null;\n$benefitsPriorDD= null;\n$enlistmentYearsDD= null;\n$post911GiBillEligibleDD= null;\n$dependentsDD = null;\n$selectBenefitsPriorBlock.$visible=true;\n$serviceSelect.$load()",
                         "required": false
                      }
                   ],
-                  "name": "selectMilitaryServiceBlock",
+                  "name": "militaryServiceDDBlock",
                   "showInitially": false,
                   "type": "block"
                },
@@ -180,8 +180,8 @@
                   "components": [
                      {
                         "sourceParameters": {},
-                        "name": "benefitsPrior",
-                        "sourceModel": "VEcfpYesNo",
+                        "name": "benefitsPriorDD",
+                        "sourceModel": "veCfpYesNo",
                         "label": "Did you use your Post-9/11 GI Bill benefits for tuition, housing, or books for a term that started before January 1, 2018?",
                         "loadInitially": true,
                         "type": "select",
@@ -199,8 +199,8 @@
                   "components": [
                      {
                         "sourceParameters": {},
-                        "name": "enlistmentYears",
-                        "sourceModel": "VEcfpEnlistment",
+                        "name": "enlistmentYearsDD",
+                        "sourceModel": "veCfpEnlistment",
                         "label": "Completed an enlistment of:",
                         "loadInitially": true,
                         "type": "select",
@@ -218,14 +218,14 @@
                   "components": [
                      {
                         "sourceParameters": {},
-                        "name": "post911GiBillEligible",
-                        "sourceModel": "VEcfpYesNo",
+                        "name": "post911GiBillEligibleDD",
+                        "sourceModel": "veCfpYesNo",
                         "label": "Are you eligible for the Post-9/11 GI Bill?",
                         "loadInitially": true,
                         "type": "select",
                         "labelKey": "YES_NO_DESC",
                         "valueKey": "YES_NO",
-                        "onUpdate": "$selectMilitaryService= null;\n$benefitsPrior= null;\n$enlistmentYears= null;\n$dependents = null;\nif ($post911GiBillEligible == 'Y') {\n  $selectDependents.$visible=false;\n  $generateFormButtonBlock.$visible=true;\n  $studentDataHtmlTable.$load();\n} else  {\n  $selectDependents.$visible=true;\n  $generateFormButtonBlock.$visible=false;\n}",
+                        "onUpdate": "$militaryServiceDD= null;\n$benefitsPriorDD= null;\n$enlistmentYearsDD= null;\n$dependentsDD = null;\nif ($post911GiBillEligibleDD == 'Y') {\n  $selectDependents.$visible=false;\n  $generateFormButtonBlock.$visible=true;\n  $studentDataHtmlTable.$load();\n} else  {\n  $selectDependents.$visible=true;\n  $generateFormButtonBlock.$visible=false;\n}",
                         "required": true
                      }
                   ],
@@ -237,8 +237,8 @@
                   "components": [
                      {
                         "sourceParameters": {},
-                        "name": "dependents",
-                        "sourceModel": "VEcfpDependents",
+                        "name": "dependentsDD",
+                        "sourceModel": "veCfpDependents",
                         "label": "How many dependents do you have?",
                         "loadInitially": true,
                         "type": "select",
@@ -295,20 +295,20 @@
                         "allowModify": false,
                         "pageSize": 5,
                         "onLoad": "$displayToday=$studentDataHtmlTable.$selected.TODAY; $displayFirstName=$studentDataHtmlTable.$selected.FIRST_NAME; $displayLastName=$studentDataHtmlTable.$selected.LAST_NAME; $displayStudentID=$studentDataHtmlTable.$selected.STUDENT_ID; $displayStartYear=$studentDataHtmlTable.$selected.START_YEAR; $displayEndYear=$studentDataHtmlTable.$selected.END_YEAR; $displayTuition=$studentDataHtmlTable.$selected.TUITION; $displayRoomBoard=$studentDataHtmlTable.$selected.ROOM_BOARD; $displayBooksSupplies=$studentDataHtmlTable.$selected.BOOKS_SUPPLIES; $displayTransportation=$studentDataHtmlTable.$selected.TRANSPORTATION; $displayOther=$studentDataHtmlTable.$selected.OTHER; $displayEstCoa=$studentDataHtmlTable.$selected.EST_COA; $displayInstSch=$studentDataHtmlTable.$selected.INST_SCH; $displayStateSch=$studentDataHtmlTable.$selected.STATE_SCH; $displayOtherSch=$studentDataHtmlTable.$selected.OTHER_SCH; $displayTotalSch=$studentDataHtmlTable.$selected.TOTAL_SCH; $displayPell=$studentDataHtmlTable.$selected.PELL; $displayInstGrnt=$studentDataHtmlTable.$selected.INST_GRNT; $displayStateGrnt=$studentDataHtmlTable.$selected.STATE_GRNT; $displayOtherGrnt=$studentDataHtmlTable.$selected.OTHER_GRNT; $displayTotalGrnt=$studentDataHtmlTable.$selected.TOTAL_GRNT; $displayNetPrice=$studentDataHtmlTable.$selected.NET_PRICE; $displaySubLoan=$studentDataHtmlTable.$selected.SUB_LOAN; $displayUnsubLoan=$studentDataHtmlTable.$selected.UNSUB_LOAN; $displayTotalLoan=$studentDataHtmlTable.$selected.TOTAL_LOAN; $displayWorkStudy=$studentDataHtmlTable.$selected.WORK_STUDY; $displayWorkStudyHoursWk=$studentDataHtmlTable.$selected.WORK_STUDY_HOURS_WK; $displayVetBenTuition=$studentDataHtmlTable.$selected.TUITION_BENEFIT; $displayVetHousingAllowance=$studentDataHtmlTable.$selected.HOUSING_ALLOWANCE; $displayVetBookStipend=$studentDataHtmlTable.$selected.BOOK_STIPEND;",
-                        "model": "VEcfpStudentData",
+                        "model": "veCfpStudentData",
                         "allowReload": false,
                         "loadInitially": true,
                         "type": "htable",
                         "parameters": {
-                           "parm_aidy": "$aidYearSelect",
-                           "parm_mil_status": "$militaryStatusSelect",
-                           "parm_mil_ben": "$giBillSelect",
-                           "parm_mil_service": "$selectMilitaryService",
-                           "parm_nbr_dependents": "$dependents",
-                           "parm_spouse_act_duty": "$selectSpouseActiveDuty",
-                           "parm_post_911_elig": "$post911GiBillEligible",
-                           "parm_enlist_yrs": "$enlistmentYears",
-                           "parm_ben_prior": "$benefitsPrior"
+                           "parm_aidy": "$aidYearDD",
+                           "parm_mil_status": "$militaryStatusDD",
+                           "parm_mil_ben": "$giBillDD",
+                           "parm_mil_service": "$militaryServiceDD",
+                           "parm_nbr_dependents": "$dependentsDD",
+                           "parm_spouse_act_duty": "$spouseActiveDutyDD",
+                           "parm_post_911_elig": "$post911GiBillEligibleDD",
+                           "parm_enlist_yrs": "$enlistmentYearsDD",
+                           "parm_ben_prior": "$benefitsPriorDD"
                         }
                      },
                      {
@@ -325,7 +325,7 @@
                {
                   "components": [
                      {
-                        "onClick": "$studentDataHtmlTable.$load();\n$VEcfpDocumentBlock.$visible=true;\n$selectAllBlock.$visible=false;",
+                        "onClick": "$studentDataHtmlTable.$load();\n$veCfpDocumentBlock.$visible=true;\n$selectAllBlock.$visible=false;",
                         "name": "generateCfpButton",
                         "label": "Generate College Financing Plan",
                         "type": "button"
@@ -343,24 +343,24 @@
          {
             "components": [
                {
-                  "onClick": "$selectAllBlock.$visible=true;\n$VEcfpDocumentBlock.$visible=false;",
+                  "onClick": "$selectAllBlock.$visible=true;\n$veCfpDocumentBlock.$visible=false;",
                   "name": "vetBenInfoBackButton",
                   "label": "Back",
                   "type": "button"
                },
                {
-                  "name": "VEcfpDocumentHtml",
+                  "name": "veCfpDocumentHtml",
                   "style": "",
                   "type": "literal",
                   "value": "<!DOCTYPE html>\n<html lang=\"en\">\n\n<head>\n    <meta charset=\"utf-8\">\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <title>College Financing Plan</title>\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"https://rawcdn.githack.com/tkevinle/css/d75f670c855250226b43c3cd2faf56c5c6f83fc5/reset.css\" />\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"https://rawcdn.githack.com/tkevinle/css/ac0cdf8c18e5e9fc8cb25903535042c8807841b8/styles.css\" />\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"https://rawcdn.githack.com/tkevinle/css/d75f670c855250226b43c3cd2faf56c5c6f83fc5/custom.css\" />\n    <script defer type=\"text/javascript\" src=\"https://rawcdn.githack.com/tkevinle/css/d75f670c855250226b43c3cd2faf56c5c6f83fc5/scripts.js\"></script>\n</head>\n\n<body>\n    <div id=\"sheet\" class=\"container\">\n        <div class=\"panel main-header-panel\">\n            <header class=\"main-header panel-header\">\n                <div class='pull-right'>\n                    <div id=\"date-stamp\">$displayToday</div>     \n                </div>\n                <div class=\"school-heading\">\n                    <h1 id=\"school-name\">City College of San Francisco</h1>\n                    <h2>Veterans College Financing Plan</h2>\n                    <h3 id=\"student-name\">$displayFirstName $displayLastName, $displayStudentID</h3>\n                </div>\n            </header>\n        </div>\n\n        <table id=\"costs-table\" class=\"table numbers\" cellspacing=\"0\">\n            <thead>\n                <tr>\n                    <th colspan=\"3\">Total Cost of Attendance $displayStartYear - $displayEndYear</th>\n                </tr>\n            </thead>\n            <tbody>\n                <tr>\n                    <td><span class=\"line-text\">Tuition and fees</span></td>\n                    <td class=\"line-value text-center\" colspan=\"2\"><span class=\"dollar\">$</span><span\n                            id=\"costs-tuition-and-fees\" class=\"amount\">$displayTuition</span></td>\n                </tr>\n                <tr>\n                    <td><span class=\"line-text\">Housing and meals</span></td>\n                    <td class=\"line-value text-center\" colspan=\"2\"><span class=\"dollar\">$</span><span\n                            id=\"costs-housing-and-meals-off-campus\" class=\"amount\">$displayRoomBoard</span></td>\n                </tr>\n                <tr>\n                    <td><span class=\"line-text\">Books and supplies</span></td>\n                    <td class=\"line-value text-center\" colspan=\"2\"><span class=\"dollar\">$</span><span\n                            id=\"costs-books-and-supplies\" class=\"amount\">$displayBooksSupplies</span></td>\n                </tr>\n                <tr>\n                    <td><span class=\"line-text\">Transportation</span></td>\n                    <td class=\"line-value text-center\" colspan=\"2\"><span class=\"dollar\">$</span><span\n                            id=\"costs-transportation\" class=\"amount\">$displayTransportation</span></td>\n                </tr>\n                <tr>\n                    <td><span class=\"line-text\">Other education costs</span></td>\n                    <td class=\"line-value text-center\" colspan=\"2\"><span class=\"dollar\">$</span><span\n                            id=\"costs-other-education-costs\" class=\"amount\">$displayOther</span></td>\n                </tr>\n                <tr>\n                    <td><span class=\"line-text\"><span id=\"costs-total-estimated-cost-explain\"\n                                class=\"line-text strong\">Estimated Cost of Attendance</span></span></td>\n                    <td class=\"line-value text-center\" colspan=\"2\"><span class=\"dollar strong\">$</span><span\n                            id=\"costs-total-estimated-cost-off-campus\" class=\"amount strong\">$displayEstCoa</span> <span\n                            class=\"per-year\">/ yr</span></td>\n                </tr>\n            </tbody>\n        </table>\n        <h2>Scholarship and Grant Options</h2>\n        <p>Scholarships and Grants are considered \"Gift\" aid - no repayment is needed.</p>\n        <section class=\"content numbers\">\n            <table id=\"scholarships-table\" class=\"table numbers\" cellspacing=\"0\">\n                <thead>\n                    <tr>\n                        <th colspan=\"2\">Scholarships</th>\n                    </tr>\n                </thead>\n                <tbody>\n                    <tr>\n                        <td colspan=\"2\"><span class=\"line-text\">Merit-Based Scholarships</span></td>\n                    </tr>\n                    <tr>\n                        <td><span>Scholarships from your school</span></td>\n                        <td><span class=\"dollar\">$</span><span id=\"aid-scholarships-school\" class=\"amount\">$displayInstSch</span>\n                        </td>\n                    </tr>\n                    <tr>\n                        <td><span class=\"indent\">Scholarships from your state</span></td>\n                        <td><span class=\"dollar\">$</span><span id=\"aid-scholarships-state\" class=\"amount\">$displayStateSch</span>\n                        </td>\n                    </tr>\n                    <tr>\n                        <td><span class=\"line-text indent\">Other scholarships</span></td>\n                        <td><span class=\"dollar\">$</span><span id=\"aid-scholarships-other\" class=\"amount\">$displayOtherSch</span>\n                        </td>\n                    </tr>\n                    <tr>\n                        <td><span class=\"line-text\">Employer Paid Tuition Benefits</span></td>\n                        <td><span class=\"dollar\">$</span><span id=\"employer-paid-tuition-benefits\"\n                                class=\"amount\">0</span></td>\n                    </tr>\n                    <tr>\n                        <td><span class='strong'>Total Scholarships</span></td>\n                        <td><span class=\"dollar strong\">$</span><span id=\"aid-total-scholarships\"\n                                class='strong'>$displayTotalSch</span> <span class=\"per-year\">/ yr</span></td>\n                    </tr>\n                </tbody>\n            </table>\n        </section>\n\n        <aside class=\"aside\">\n            <table id=\"grants-table\" class=\"table numbers\" cellspacing=\"0\">\n                <thead>\n                    <tr>\n                        <th colspan=\"2\">Grants</th>\n                    </tr>\n                </thead>\n                <tbody>\n                    <tr>\n                        <td colspan=\"2\"><span class=\"line-text\">Need-Based Grant Aid</span></td>\n                    </tr>\n                    <tr>\n                        <td><span class=\"line-text indent\">Federal Pell Grants</span></td>\n                        <td><span class=\"dollar\">$</span><span id=\"aid-grants-federal-pell\" class=\"amount\">$displayPell</span>\n                        </td>\n                    </tr>\n\n                    <tr>\n                        <td><span class=\"line-text indent\">Institutional Grants</span></td>\n                        <td><span class=\"dollar\">$</span><span id=\"aid-grants-institution\" class=\"amount\">$displayInstGrnt</span>\n                        </td>\n                    </tr>\n                    <tr>\n                        <td><span class=\"line-text indent\">State Grants</span></td>\n                        <td><span class=\"dollar\">$</span><span id=\"aid-grants-state\" class=\"amount\">$displayStateGrnt</span>\n                        </td>\n                    </tr>\n                    <tr>\n                        <td><span class=\"line-text\">Other forms of grant aid</span></td>\n                        <td><span class=\"dollar\">$</span><span id=\"aid-grants-other\" class=\"amount\">$displayOtherGrnt</span>\n                        </td>\n                    </tr>\n                    <tr>\n                        <td><span class=\"line-text strong\">Total Grants</span></td>\n                        <td><span class=\"dollar strong\">$</span><span id=\"aid-total-grants\"\n                                class=\"amount strong\">$displayTotalGrnt</span> <span class=\"per-year\">/ yr</span></td>\n                    </tr>\n                </tbody>\n            </table>\n        </aside>\n\n        <table id=\"net-price-table\" class=\"table numbers accent\" cellspacing=\"0\">\n            <thead>\n                <tr>\n                    <th colspan=\"2\">College Costs You Will Be Required to Pay</th>\n                </tr>\n            </thead>\n            <tbody>\n                <tr>\n                    <td>\n                        <span class=\"line-text strong\">Net Price <br /><span class='no-margin-note'>(Cost of attendance\n                                minus\n                                total grants and scholarships)</span></span>\n                    </td>\n                    <td><span class=\"dollar strong\">$</span><span id=\"net-price-total\"\n                            class=\"amount strong\">$displayNetPrice</span> <span class=\"per-year\">/ yr</span></td>\n                </tr>\n            </tbody>\n        </table>\n\t\t\n\t\t<table id=\"costs-table\" class=\"table numbers\" cellspacing=\"0\">\n            <thead>\n                <tr>\n                    <th colspan=\"2\">Veterans Benefits</th>\n                </tr>\n            </thead>\n            <tbody>\n\t\t\t\t<tr>\n                    <td colspan=\"2\">You may be eligible for up to:</td>\n                </tr>\n                <tr>\n                    <td>\n                        <span class=\"line-text strong\">Tuition </span> (annually)\n                    </td>\n                    <td><span class=\"dollar strong\">$</span><span id=\"net-price-total\"\n                            class=\"amount strong\">$displayVetBenTuition</span></td>\n                </tr>\n\t\t\t\t<tr>\n                    <td>\n                        <span class=\"line-text strong\">Housing </span>(monthly)\n                    </td>\n                    <td><span class=\"dollar strong\">$</span><span id=\"net-price-total\"\n                            class=\"amount strong\">$displayVetHousingAllowance</span></td>\n                </tr>\n\t\t\t\t<tr>\n                    <td>\n                        <span class=\"line-text strong\">Books </span>(annually)\n                    </td>\n                    <td><span class=\"dollar strong\">$</span><span id=\"net-price-total\"\n                            class=\"amount strong\">$displayVetBookStipend</span></td>\n                </tr>\n            </tbody>\n        </table>\n\n        <h2>Loan and Work Options to Pay the Net Price to You</h2>\n        <p>You must repay loans, plus interest and fees.  </p>\n        <section class='content numbers'>\n            <table id=\"loan-options-table\" class=\"table numbers\" cellspacing=\"0\">\n                <thead>\n                    <tr>\n                        <th colspan=\"2\">Loan Options<sup>*</sup></th>\n                    </tr>\n                </thead>\n                <tbody>\n                    <tr>\n                        <td><span class=\"line-text\">Federal Direct Subsidized Loan\n                        </span></td>\n                        <td><span class=\"dollar\">$</span><span id=\"loan-options-federal-direct-subsidized\"\n                                class=\"amount\">$displaySubLoan</span> <span class=\"per-year\">/ yr</span></td>\n                    </tr>\n                    <tr>\n                        <td><span class=\"line-text\">Federal Direct Unsubsidized Loan\n                        </span></td>\n                        <td><span class=\"dollar\">$</span><span id=\"loan-options-federal-direct-unsubsidized\"\n                                class=\"amount\">$displayUnsubLoan</span> <span class=\"per-year\">/ yr</span></td>\n                    </tr>\n                    <tr>\n                        <td><span class=\"line-text strong\">Total Loan Options</span></td>\n                        <td><span class=\"dollar strong\">$</span><span id=\"loan-options-total\"\n                                class=\"amount strong\">$displayTotalLoan</span> <span class=\"per-year\">/ yr</span></td>\n                    </tr>\n                </tbody>\n            </table>\n                   \n            <div class=\"aside-group panel simple loans\" style='min-height: 144px;'>\n                <header class=\"header info-header\">\n                    <h2 class=\"default-font\">* Loan Amounts</h2>\n                </header>\n                <p>Note that the amounts listed\n                    are the maximum available to you - you are allowed and encouraged to borrow only what you need.To learn about loan repayment choices and calculate your Federal Loan monthly payment, go\n                    to:\n                    <a target=\"_blank\"\n                        href=\"https://studentaid.gov/h/manage-loans\">https://studentaid.gov/h/manage-loans</a>.\n                </p>\n            </div>\n            <div class=\"aside-group panel simple loans\" style='min-height: 116px;'>\n                <header class=\"header info-header\">\n                    <h2 class=\"default-font\">Other Important Information</h2>\n                </header>\n\t\t\t\t<p> To view campus Graduation Rates, click <a href=\"https://ccsf.edu\" target=\"_blank\">HERE</a>.</p>\n\t\t\t\t<p> To view campus Transfer Credit, click <a href=\"https://ccsf.edu\" target=\"_blank\">HERE</a>.</p>\n\t\t\t\t<p> To view campus Military Credit, click <a href=\"https://ccsf.edu\" target=\"_blank\">HERE</a>.</p>\n            </div>\n            <div class=\"aside-group panel simple loans\" style='min-height: 116px;'>\n                <header class=\"header info-header\">\n                    <h2 class=\"default-font\">Customized Information from CCSF</h2>\n                </header>\n\t\t\t\t<p>The estimated figures on this Veterans College Financing Plan are meant to help you easily compare veteran and financial aid packages offered by different institutions and ultimately make an informed decision on where \n\t\t\t\t\tto invest in your higher education.  Although we've done our best to accurately calculate these figures, please remember these are only estimates.  Should you choose to attend our institution, your final figures could differ.\n\t\t\t\t\tFor more information please visit our website <a href=\"https://ccsf.edu\" target=\"_blank\">HERE</a>.\n\t\t\t\t</p>\n            </div>\n        \n        </section>\n        <aside class='aside'>\n            <table id=\"work-options-table\" class=\"table numbers\"\n                cellspacing=\"0\">\n                <thead>\n                    <tr>\n                        <th colspan=\"2\">Work Options</th>\n                    </tr>\n                </thead>\n                <tbody>\n                         <tr>\n                        <td><span class=\"line-text\">Work-study </span><span class=\"inline-note\">Hours Per Week (estimated)</span></td>\n                        <td><span class=\"dollar\">$</span><span id=\"work-options-work-study\" class=\"amount\">$displayWorkStudy</span>\n                            <span class=\"per-year\">/ yr</span><span class=\"inline-note\"></span><span id=\"work-options-hours-per-week\" class=\"amount\">$displayWorkStudyHoursWk</span>\n                            <span class=\"per-year\">/ wk</span></td>\n                    </tr>\n                    <tr>\n                        <td><span class=\"line-text strong\">Total Work </span></td>\n                        <td><span class=\"dollar strong\">$</span><span id=\"work-options-total\"\n                                class=\"amount strong\">$displayWorkStudy</span> <span class=\"per-year\">/ yr</span></td>\n                    </tr>\n                </tbody>\n            </table>\n            <div class=\"aside-group panel simple loans\" style='min-height: 147px;'>\n                <header class=\"header info-header\">\n                    <h2 class=\"default-font\">For More Information</h2>\n                </header>\n                <div class=\"address-container\">\n                \n                    <span id=\"info-school-name\" class=\"address-name\">City College of San Francisco</span>\n                    <br>\n                    <span id=\"info-financial-aid-office\" class=\"address-name\">Veterans Educational Transition Services (VETS) Office</span>\n                    <div class=\"address\">\n                        <div id=\"info-address-line-1\" class=\"address-line\">50 Frida Kahlo Way</div>\n                        <div id=\"info-address-line-2\" class=\"address-line\">Cloud Hall 333 & 332</div>\n                        <div id=\"info-address-city-state-zip\" class=\"address-line\">San Francisco, CA 94112</div>\n                        <div id=\"info-address-phone\" class=\"address-line\">Telephone: (415) 239-3486</div>\n                        <div id=\"info-address-email\" class=\"address-line\">E-mail: veterans@ccsf.edu</div>\n                    </div>\n                </div>\n            </div>\n        </aside>\n        <aside class=\"aside\">\n            <div class=\"aside-group panel simple loans\" style='min-height: 200px;'>\n                <header class=\"header info-header\">\n                    <h2 class=\"default-font\"> Education Tax Benefits</h2>\n                </header>\n                <ul id=\"other-options-list\">\n                    <li><strong>American Opportunity Tax Credit (AOTC):</strong> Parents or students may qualify to\n                        receive up to $2,500 by claiming the American Opportunity Tax Credit on their tax return\n                        during the following calendar year.</li>\n                    <li><strong>529 Savings Plan:</strong> 529 Savings Plan is a college savings plan that offers tax and financial aid benefits. </li>\n                      <li><strong>Prepaid Tuition Plans:</strong> Prepaid Tuition Plans let you pre-pay all or part of the costs of an in-state public college education. They may also be converted for use at private and out-of-state colleges. The Private College 529 Plan is a separate prepaid plan for private colleges, sponsored by more than 250 private colleges.</li>\n                      <li><strong>Lifetime Learning Credit (LLC):</strong> Parents or students many qualify to receive up to $2,000 by claiming the LLC on their tax return. This credit may be taken for an unlimited account of tax years, is non-refundable and cannot be combined with the AOTC in a tax year.</li>\n                      <li><strong>Student Loan Interest Deduction:</strong> Student loan borrowers may qualify to receive up to $2,500 by claiming the deduction on their tax return if they repay interest on a student loan in a taxable year. This is an above-the-line deduction, meaning it can be taken even if the taxpayer takes the standard deduction. Parents who take out Parent PLUS loans are also eligible to take this deduction.</li>\n                    <li><strong>Military and/or National Service Benefits:</strong> For information please visit:<a target=\"_blank\"\n                        href=\"https://studentaid.gov/understand-aid/types/military\"> https://studentaid.gov/understand-aid/types/military </a></li>\n                </ul>\n            </div>\n           \n        </aside>\n        <div class=\"clearfix page-break\"></div>\n\n      \n        <div class=\"clearfix\"></div>\n\n        <table id=\"glossary\" cellspacing=\"0\">\n            <thead>\n                <tr>\n                    <th>Glossary</th>\n                </tr>\n            </thead>\n            <tbody>\n                <tr>\n                    <td>\n                        <ul id=\"glossary-list\">\n                          <li id=\"term-coa\">\n                                <strong>Cost of Attendance (COA):</strong> The total amount (not including grants and\n                                scholarships) that it will cost you to go to school during the 2021–22 school year. COA\n                                includes tuition and fees; housing and meals;\n                                and allowances for books, supplies, transportation, loan fees, and dependent care. It\n                                also includes miscellaneous and personal expenses, such as an allowance for the rental\n                                or purchase of a personal computer; costs related\n                                to a disability; and reasonable costs for eligible study-abroad programs. For students\n                                attending less than half-time, the COA includes tuition and fees; an allowance for\n                                books, supplies, and transportation; and dependent\n                                care expenses.\n                            </li>\n                                    <li><strong>Direct Subsidized Loan:</strong> Loans that the U.S. Department of\n                                        Education pays the interest on\n                                        while you’re in school at least half-time, for the first six months after you\n                                        leave school (referred to as a grace period*), and during a period of deferment\n                                        (a postponement of loan payments).</li>\n                                    <li><strong>Direct Unsubsidized Loan:</strong> Loans that the borrower is\n                                        responsible for paying the interest on during all periods. If you choose not to\n                                        pay the interest while you are in school and during grace periods and deferment\n                                        or forbearance periods, your interest will accrue (accumulate) and be\n                                        capitalized (that is, your interest will be added to the principal amount of\n                                        your loan).</li>\n                                 <li id=\"term-expected-family-contribution\">\n                                <strong>Expected Family Contribution:</strong> A number used by your school to\n                                calculate the amount of federal student aid you are eligible to receive. It is based on\n                                the financial information provided in your Free Application for Federal student Aid\n                                (FAFSA). This is not the amount of money your family will have to pay for college, nor\n                                is it the amount of federal student aid you will receive.\n                            </li> \n                                   <li id=\"term-federal-work-study\">\n                                <strong>Federal Work-Study:</strong> A federal student aid program that provides\n                                part-time employment while the student is enrolled in school to help pay his or her\n                                education expenses. The student must seek out and apply for work-study jobs at his or\n                                her school. The student will be paid directly for the hours he or she works may not automatically be credited to pay for institutional tuition or fees. The\n                                amount you earn cannot exceed the total amount awarded by the school for the\n                                award year. The availability of work-study jobs varies by school. Please note that Federal Work-Study earnings may be taxed in certain scenarios; however the income you earn will not be counted against you when calculating your Expected Family Contribution on the FASFA.\n                            </li>\n                           \n                               <li id=\"term-grants-and-scholarships\">\n                                <strong>Grants and Scholarships:</strong> Student aid funds that do not have to be\n                                repaid. Grants are often need-based, while scholarships are usually merit-based.\n                                Occasionally you might have to pay back part or all\n                                of a grant if, for example, you withdraw from school before finishing a semester.\n                                If you use a grant or scholarship to cover your living expenses, the amount of your scholarship may be counted as taxable income on your tax return.\n                            </li> \n                            <li id=\"term-option-loans\">\n                                <strong>Loans:</strong> Borrowed money that must be repaid with interest. Loans from the\n                                federal government typically have a lower interest rate than loans from private lenders.\n                                Federal loans, listed from most advantageous\n                                to least advantageous, are called Direct Subsidized Loans, Direct Unsubsidized Loans,\n                                and Parent PLUS Loans. You can find more information about federal loans at\n                                StudentAid.gov.\n                            </li>       \n                            <li id=\"term-net-price\">\n                                <strong>Net Price:</strong> An estimate of the actual cost that a student and his or her family\n                                need to pay in a given year to cover education expenses for the student to attend a\n                                particular school. Net price is determined by taking the institution's cost of\n                                attendance and subtracting any grants and scholarships for which the student may be\n                                eligible.\n                            </li>\n                            <li class='strong'>For more information visit <a href=\"https://studentaid.gov\" target=\"_blank\">https://studentaid.gov</a>.</li>\n                        </ul>\n                    </td>\n                </tr>\n            </tbody>\n        </table>       \n    </div>\n</body>\n</html>"
                }
             ],
-            "name": "VEcfpDocumentBlock",
+            "name": "veCfpDocumentBlock",
             "showInitially": false,
             "type": "block"
          }
       ],
-      "name": "VEcfpDisplay",
+      "name": "veCfpDisplay",
       "type": "page",
       "title": "Veterans College Financing Plan",
       "importCSS": ""

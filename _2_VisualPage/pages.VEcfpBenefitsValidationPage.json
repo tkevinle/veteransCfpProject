@@ -1,37 +1,37 @@
 {
-   "constantName": "VEcfpBenefitsValidationPage",
+   "constantName": "veCfpBenefitsValidationPage",
    "developerSecurity": [],
    "extendsPage": null,
-   "fileTimestamp": "2022-01-07T00:43:49Z",
+   "fileTimestamp": "2022-01-14T19:54:45Z",
    "modelView": {
       "components": [
          {
-            "resource": "virtualDomains.VEcfpSelectAidYear",
-            "name": "VEcfpAidYearSelectDomain",
+            "resource": "virtualDomains.veCfpSelectAidYear",
+            "name": "veCfpAidYearSelect",
             "type": "resource",
             "staticData": []
          },
          {
-            "resource": "virtualDomains.VEcfpValidationDomain",
-            "name": "VEcfpBenefitsValidationDomain",
+            "resource": "virtualDomains.veCfpValidation",
+            "name": "veCfpBenefitsValidation",
             "type": "resource",
             "staticData": []
          },
          {
-            "resource": "virtualDomains.VEcfpMilitaryStatus",
-            "name": "VEcfpMilitaryStatus",
+            "resource": "virtualDomains.veCfpMilitaryStatus",
+            "name": "veCfpMilitaryStatus",
             "type": "resource",
             "staticData": []
          },
          {
-            "resource": "virtualDomains.VEcfpGIBill",
-            "name": "VEcfpGIBill",
+            "resource": "virtualDomains.veCfpGIBill",
+            "name": "veCfpGIBill",
             "type": "resource",
             "staticData": []
          },
          {
-            "resource": "virtualDomains.VEcfpMilitaryService",
-            "name": "VEcfpMilitaryService",
+            "resource": "virtualDomains.veCfpMilitaryService",
+            "name": "veCfpMilitaryService",
             "type": "resource",
             "staticData": []
          },
@@ -41,20 +41,20 @@
             "value": "<script>\n\n$(document).ready( function () {\n\ndelete  $.datepicker.regional[dateTimeLocale].dateFormat ; });</script>"
          },
          {
-            "resource": "virtualDomains.VEcfpCopyValidationDomain",
-            "name": "VEcfpValidationCopy",
+            "resource": "virtualDomains.veCfpCopyValidation",
+            "name": "veCfpValidationCopy",
             "type": "resource",
             "staticData": []
          },
          {
-            "resource": "virtualDomains.VEcfpAidYearDomain",
-            "name": "VEcfpAidYearAvailable",
+            "resource": "virtualDomains.veCfpAidYearDomain",
+            "name": "veCfpAidYearDomain",
             "type": "resource",
             "staticData": []
          },
          {
-            "resource": "virtualDomains.VEcfpAidyToSelect",
-            "name": "VEcfpAidYearToSelect",
+            "resource": "virtualDomains.veCfpAidyToSelect",
+            "name": "veCfpAidYearToSelect",
             "type": "resource",
             "staticData": []
          },
@@ -67,8 +67,8 @@
                },
                {
                   "sourceParameters": {},
-                  "name": "selectAidYear",
-                  "sourceModel": "VEcfpAidYearSelectDomain",
+                  "name": "aidYearDD",
+                  "sourceModel": "veCfpAidYearDomain",
                   "label": "Select Aid Year:",
                   "loadInitially": true,
                   "type": "select",
@@ -100,14 +100,14 @@
                         "type": "select",
                         "required": false,
                         "sourceParameters": {},
-                        "name": "selectMilitaryStatus",
-                        "sourceModel": "VEcfpMilitaryStatus",
+                        "name": "militaryStatusDD",
+                        "sourceModel": "veCfpMilitaryStatus",
                         "model": "GZRVCFP_MIL_STATUS",
                         "placeholder": "",
                         "labelKey": "MIL_STATUS_DESC",
                         "valueKey": "MIL_STATUS_CODE",
                         "value": "",
-                        "onUpdate": "$militaryStatus=$benefitsValidationTable.$selected.GZRVCFP_MIL_STATUS;\n$selectMilitaryBenefit.$load();"
+                        "onUpdate": "$militaryStatus=$benefitsValidationTable.$selected.GZRVCFP_MIL_STATUS;\n$militaryBenefitDD.$load();"
                      },
                      {
                         "name": "GZRVCFP_MIL_STATUS",
@@ -117,15 +117,15 @@
                      },
                      {
                         "sourceParameters": {},
-                        "name": "selectMilitaryBenefit",
-                        "sourceModel": "VEcfpGIBill",
+                        "name": "militaryBenefitDD",
+                        "sourceModel": "veCfpGIBill",
                         "model": "GZRVCFP_MIL_BENEFIT",
                         "label": "Military Benefit",
                         "loadInitially": true,
                         "type": "select",
                         "labelKey": "VET_CODE_DESC",
                         "valueKey": "VET_CODE",
-                        "onUpdate": "$VEcfpMilitaryService.$load();\n$selectMilitaryBenefit.$load();",
+                        "onUpdate": "$veCfpMilitaryServiceDD.$load();",
                         "required": true
                      },
                      {
@@ -139,8 +139,8 @@
                            "parm_mil_ben": "$selectMilitaryBenefit",
                            "GZRVCFP_MIL_BENEFIT": "$selectMilitaryBenefit"
                         },
-                        "name": "selectMilitaryService",
-                        "sourceModel": "VEcfpMilitaryService",
+                        "name": "selectMilitaryServiceDD",
+                        "sourceModel": "veCfpMilitaryService",
                         "model": "GZRVCFP_MIL_SERVICE",
                         "label": "Military Service",
                         "loadInitially": true,
@@ -308,10 +308,10 @@
                   "type": "grid",
                   "name": "benefitsValidationTable",
                   "allowModify": true,
-                  "model": "VEcfpBenefitsValidationDomain",
+                  "model": "veCfpBenefitsValidation",
                   "allowReload": true,
                   "parameters": {
-                     "parm_aidy": "$selectAidYear"
+                     "parm_aidy": "$aidYearDD"
                   }
                }
             ],
@@ -325,8 +325,8 @@
             "components": [
                {
                   "sourceParameters": {},
-                  "name": "selectFromAidYear",
-                  "sourceModel": "VEcfpAidYearAvailable",
+                  "name": "fromAidYearDD",
+                  "sourceModel": "veCfpAidYearDomain",
                   "loadInitially": true,
                   "label": "From Aid Year:",
                   "type": "select",
@@ -337,8 +337,8 @@
                },
                {
                   "sourceParameters": {},
-                  "name": "selectToAidYear",
-                  "sourceModel": "VEcfpAidYearToSelect",
+                  "name": "toAidYearDD",
+                  "sourceModel": "veCfpAidYearToSelect",
                   "loadInitially": true,
                   "label": "To Aid Year:",
                   "type": "select",
@@ -348,7 +348,7 @@
                   "required": true
                }
             ],
-            "submit": "$VEcfpValidationCopy.$post( { p_fromAidy: $selectFromAidYear, p_toAidy: $selectToAidYear }, null, function (response){$copyAidYearDataForm.$visible=false; alert('Aid Year Data Successfully Copied');}, function (response) { var msg = \"Request Error.\\n\"; if (response.data.errors.errorMessage) { msg += response.data.errors.errorMessage; } else if (response.data.errors[0].errorMessage) { msg += response.data.errors[0].errorMessage; } else { msg += response.statusText; } if (msg) { alert(msg,{type:\"error\"}); } });",
+            "submit": "$veCfpValidationCopy.$post( { parm_fromAidy: $fromAidYearDD, parm_toAidy: $toAidYearDD}, null, function (response){$copyAidYearDataForm.$visible=false; alert('Aid Year Data Successfully Copied');}, function (response) { var msg = \"Request Error.\\n\"; if (response.data.errors.errorMessage) { msg += response.data.errors.errorMessage; } else if (response.data.errors[0].errorMessage) { msg += response.data.errors[0].errorMessage; } else { msg += response.statusText; } if (msg) { alert(msg,{type:\"error\"}); } });",
             "nextButtonLabel": "",
             "name": "copyAidYearDataForm",
             "showInitially": true,
@@ -356,7 +356,7 @@
             "type": "form"
          }
       ],
-      "name": "VEcfpBenefitsValidationPage",
+      "name": "veCfpBenefitsValidationPage",
       "type": "page",
       "title": "Veterans Benefits Validation Page",
       "importCSS": "veCfpCss"

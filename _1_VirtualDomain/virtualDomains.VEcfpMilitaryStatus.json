@@ -7,21 +7,21 @@
          "allowDelete": true,
          "allowPost": true,
          "allowPut": true,
-         "roleName": "ALLROLES",
+         "roleName": "ADMIN-GPBADMN",
          "allowGet": true
       },
       {
          "allowDelete": true,
          "allowPost": true,
          "allowPut": true,
-         "roleName": "ADMIN-GPBADMN",
+         "roleName": "ALLROLES",
          "allowGet": true
       }
    ],
    "codeGet": "select *\r\nfrom (\r\nselect \r\n    'A' mil_status_code, \r\n    'Veteran' mil_status_desc\r\nfrom dual\r\nunion\r\nselect \r\n    'B', \r\n    'Active Duty' \r\nfrom dual\r\nunion\r\nselect \r\n    'C', \r\n    'National Guard/Reserves' \r\nfrom dual\r\nunion\r\nselect \r\n    'D' , \r\n    'Spouse' \r\nfrom dual\r\nunion\r\nselect \r\n    'E' , \r\n    'Child' \r\nfrom dual\r\n)",
    "typeOfCode": "S",
-   "fileTimestamp": "2022-01-05T18:12:09Z",
-   "serviceName": "VEcfpMilitaryStatus",
+   "fileTimestamp": "2022-01-14T19:00:46Z",
+   "serviceName": "veCfpMilitaryStatus",
    "codePost": null,
    "developerSecurity": []
 }

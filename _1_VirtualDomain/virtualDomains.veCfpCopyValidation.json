@@ -1,0 +1,27 @@
+{
+   "owner": "TLE",
+   "codePut": null,
+   "codeDelete": null,
+   "virtualDomainRoles": [
+      {
+         "allowDelete": false,
+         "allowPost": true,
+         "allowPut": false,
+         "roleName": "ADMIN-GPBADMN",
+         "allowGet": true
+      },
+      {
+         "allowDelete": false,
+         "allowPost": true,
+         "allowPut": false,
+         "roleName": "ALLROLES",
+         "allowGet": true
+      }
+   ],
+   "codeGet": "SELECT *\r\nFROM GZRVCFP;",
+   "typeOfCode": "S",
+   "fileTimestamp": "2022-01-14T19:32:02Z",
+   "serviceName": "veCfpCopyValidation",
+   "codePost": "BEGIN\r\nINSERT INTO GENERAL.GZRVCFP B (B.GZRVCFP_AIDY_CODE, B.GZRVCFP_MIL_STATUS, B.GZRVCFP_MIL_BENEFIT, B.GZRVCFP_MIL_SERVICE, B.GZRVCFP_SPOUSE_ACT_DUTY, B.GZRVCFP_BEN_PRIOR_20180101, B.GZRVCFP_COMPL_ENLIST_YRS, B.GZRVCFP_POST_911_ELIG, B.GZRVCFP_NBR_DEPENDENTS, B.GZRVCFP_TUITION_ANNUAL, B.GZRVCFP_HOUSING_MONTHLY, B.GZRVCFP_BOOK_ANNUAL, B.GZRVCFP_USER_ID, B.GZRVCFP_DATA_ORIGIN, B.GZRVCFP_ACTIVITY_DATE) \r\n(SELECT :parm_toAidy, A.GZRVCFP_MIL_STATUS, A.GZRVCFP_MIL_BENEFIT, A.GZRVCFP_MIL_SERVICE, A.GZRVCFP_SPOUSE_ACT_DUTY, A.GZRVCFP_BEN_PRIOR_20180101, A.GZRVCFP_COMPL_ENLIST_YRS, A.GZRVCFP_POST_911_ELIG, A.GZRVCFP_NBR_DEPENDENTS, A.GZRVCFP_TUITION_ANNUAL, A.GZRVCFP_HOUSING_MONTHLY, A.GZRVCFP_BOOK_ANNUAL, USER, A.GZRVCFP_DATA_ORIGIN, SYSDATE\r\n        FROM  GZRVCFP A\r\n        WHERE A.GZRVCFP_AIDY_CODE = :parm_fromAidy); \r\nCOMMIT;\r\nEND;",
+   "developerSecurity": []
+}

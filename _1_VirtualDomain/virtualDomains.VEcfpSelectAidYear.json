@@ -18,10 +18,10 @@
          "allowGet": true
       }
    ],
-   "codeGet": "SELECT robinst_aidy_code, robinst_aidy_desc, robinst_aidy_end_date\r\nFROM robinst \r\nWHERE robinst_status_ind = 'A'\r\nORDER BY robinst_aidy_end_date DESC",
+   "codeGet": "select\r\nrowidtochar(rowid) \"id\",\r\nROBINST_AIDY_CODE,\r\nROBINST_AIDY_DESC\r\nfrom ROBINST\r\nWHERE ROBINST_AIDY_START_DATE >= SYSDATE-(365*3)\r\nORDER BY ROBINST_AIDY_CODE DESC",
    "typeOfCode": "S",
-   "fileTimestamp": "2022-01-05T18:12:09Z",
-   "serviceName": "VEcfpSelectAidYear",
+   "fileTimestamp": "2022-01-14T19:32:02Z",
+   "serviceName": "veCfpSelectAidYear",
    "codePost": null,
    "developerSecurity": []
 }
